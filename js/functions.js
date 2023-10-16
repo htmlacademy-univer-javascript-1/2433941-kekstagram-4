@@ -8,15 +8,18 @@ const checkPalindrome = function(line)
   {
     newLine += normalizedLine.at(i);
   }
-  if(newLine === normalizedLine){return true}
-  else{return false}
+  if(newLine === normalizedLine){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 const getNumbers = function(line)
 {
   let numbers = '';
   line = line.toString();
-  for(i = 0; i < line.length; i++)
+  for(let i = 0; i < line.length; i++)
   {
     if(!Number.isNaN(parseInt(line[i], 10))){
       numbers += line[i];
