@@ -9,8 +9,9 @@ const checkPalindrome = function(line)
     newLine += normalizedLine.at(i);
   }
   if(newLine === normalizedLine){
-    return true;
-  } else {
+    return newLine === normalizedLine;
+  }
+  else{
     return false;
   }
 }
