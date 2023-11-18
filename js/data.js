@@ -67,6 +67,6 @@ const createPicturePost = () => ({
   comments: Array.from(new Array(getRandomInteger(MIN_COMMENTS_COUNT, MAX_COMMENTS_COUNT)), () => getRandomInteger()),
 });
 
-const createPicturePosts = () => Array.from({length: PICTURES_COUNT}, () => createPicturePost());
+const createPicturePosts = () => Array.from({length: PICTURES_ID}, () => createPicturePost());
 
 export {createPicturePosts};
