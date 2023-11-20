@@ -1,4 +1,4 @@
-import {getRandomArrayElement, getRandomInteger} from './util.js';
+import {getRandomInteger, getRandomArrayElement} from './util.js';
 
 const PICTURES_ID = 25;
 const MIN_LIKES_COUNT = 15;
@@ -64,7 +64,7 @@ const createPicturePost = () => ({
   url: `photos/${getUrlId()}.jpg`,
   desription: getRandomArrayElement(DESCRIPTION_TEXTS),
   likes: getRandomInteger(MIN_LIKES_COUNT, MAX_LIKES_COUNT),
-  comments: Array.from(new Array(getRandomInteger(MIN_COMMENTS_COUNT, MAX_COMMENTS_COUNT)), () => getRandomInteger()),
+  comments: Array.from(new Array(getRandomInteger(MIN_COMMENTS_COUNT, MAX_COMMENTS_COUNT)), () => getRandomComment()),
 });
 
 const createPicturePosts = () => Array.from({length: PICTURES_ID}, () => createPicturePost());
