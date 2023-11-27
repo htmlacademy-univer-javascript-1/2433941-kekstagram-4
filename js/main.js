@@ -1,3 +1,4 @@
 import {createPicturePosts} from './data.js';
+import {renderPictures} from './renderPictures.js';
 
-createPicturePosts();
+renderPictures(createPicturePosts());
