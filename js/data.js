@@ -7,6 +7,7 @@ const MIN_COMMENTS_COUNT = 0;
 const MAX_COMMENTS_COUNT = 30;
 const AVATAR_COUNT = 6;
 const MAX_MESSAGE_COUNT = 2;
+const LOADED_COMMENTS = 5;
 
 const DESCRIPTION_TEXTS = [
   'Я не хочу быть в отношениях, я лучше буду в мерседесе.',
@@ -70,3 +71,4 @@ const createPicturePost = () => ({
 const createPicturePosts = () => Array.from({length: PICTURES_ID}, () => createPicturePost());
 
 export {createPicturePosts};
+export{LOADED_COMMENTS};
