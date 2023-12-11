@@ -1,3 +1,5 @@
+const MINUTES_IN_HOUR = 60;
+
 const checkLineLength = (line, maxLength) => (line.length <= maxLength)
 
 const checkPalindrome = function(line)
@@ -27,4 +29,21 @@ const getNumbers = function(line)
     }
   }
   return parseInt(numbers, 10);
+};
+
+
+const isMeetingWithinWorkingHours = (startTime, endTime, meetingStart, meetingDuration) => {
+  const startMinutes = convertToMinutes(startTime);
+  const endMinutes = convertToMinutes(endTime);
+  const meetingMinutes = convertToMinutes(meetingStart);
+  const meetingEnd = meetingMinutes + meetingDuration;
+  if (startMinutes <= meetingMinutes && meetingEnd <= endMinutes) {
+    return true;
+  }
+  return false;
+};
+
+function convertToMinutes(time) {
+  const [hours, minutes] = time.split(':').map(Number);
+  return hours * MINUTES_IN_HOUR + minutes;
 }
