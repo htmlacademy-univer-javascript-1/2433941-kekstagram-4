@@ -27,6 +27,7 @@ const fillComments = (comments) => {
 const closePicture = () => {
   body.classList.remove('modal-open');
   fullsizePicture.classList.add('hidden');
+  closeButton.removeEventListener('click', closePicture);
   document.removeEventListener('keydown', closeByEscape);
 };
 
