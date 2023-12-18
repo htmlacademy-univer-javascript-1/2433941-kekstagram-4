@@ -1395,3 +1395,16 @@ main {
 .hidden {
   display: none;
 }
+
+.alert_message {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+  color: aliceblue;
+  font-weight: bold;
+  z-index: 100;
+}
