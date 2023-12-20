@@ -1,11 +1,11 @@
 import { getData } from './api.js';
-import {renderPictures} from './renderPictures.js';
 import './workingWithForm.js';
 import './workingWithFilter.js';
+import { showFilteredPhotos } from './photosFilter.js';
 
 const loadPictures = async () => {
   try {
-    renderPictures(await getData());
+    showFilteredPhotos(await getData());
   }
   catch (err){
     const alertMessage = document.querySelector('#alert').content;
