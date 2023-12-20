@@ -1,6 +1,7 @@
 import {createPicturePosts} from './data.js';
-import {renderPictures} from './renderPictures.js';
-import './workingWithForm.js';
-import './workingWithFilter.js';
+import './thumbnails.js';
+import './working-with-form.js';
+import './effects.js';
+import './scale.js';
 
-renderPictures(createPicturePosts());
+createPicturePosts();
