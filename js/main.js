@@ -1,5 +1,5 @@
 import {createPicturePosts} from './data.js';
 import './thumbnails.js';
-import './workingWithForm.js';
+import './working-with-form.js';
 
 createPicturePosts();
