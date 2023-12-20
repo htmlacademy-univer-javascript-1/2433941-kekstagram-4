@@ -1,41 +1,42 @@
 import {isEscapeKey} from './util.js';
-import{MAX_LENGTH_COMMENT, MAX_COUNT_TEGS} from './data.js';
+import{MAX_COMMENT_LENGTH, MAX_TEGS_COUNT} from './data.js';
 
 
-const body = document.body;
+const body = document.querySelector('body');
 const form = document.querySelector('.img-upload__form');
-const pictureUploadInput = form.querySelector('.img-upload__input');
-const closeButton = form.querySelector('.img-upload__cancel');
-const pictureOverlay = form.querySelector('.img-upload__overlay');
-const commentsField = form.querySelector('.text__description');
-const hashtagsField = form.querySelector('.text__hashtags');
+const imageUploadForm = document.querySelector('.img-upload__input');
+const closeFormButton = document.querySelector('.img-upload__cancel');
+const imageRedactForm = document.querySelector('.img-upload__overlay');
+const commentsField = document.querySelector('.text__description');
+const hashtagsField = document.querySelector('.text__hashtags');
 
-const closeOverlay =() => {
-  body.classList.remove('modal-open');
-  pictureOverlay.classList.add('hidden');
-  closeButton.removeEventListener('click', closeOverlay);
-  document.removeEventListener('keydown', closeByEscape);
-  pictureUploadInput.value = '';
-};
-
-function closeByEscape(evt) {
-  if(isEscapeKey) {
-    const activeElement = document.activeElement.attributes.type;
-    if (typeof(activeElement) !== 'undefined' && activeElement.value === 'text'){
-      evt.stopPropagation();
-    }
-    else {
-      closeOverlay();
-    }
-  }
-}
-
-pictureUploadInput.addEventListener('change', () => {
-  pictureOverlay.classList.remove('hidden');
-  document.body.classList.add('modal-open');
-  closeButton.addEventListener('click', closeOverlay);
-  document.addEventListener('keydown', closeByEscape);
+const onClickButtonnClose = () => closeFormButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
+  closeForm();
 });
+
+const onClickEscButton = () => document.addEventListener('keydown', (evt) => {
+  if (isEscapeKey(evt)) {
+    evt.preventDefault();
+    closeForm();
+  }
+});
+
+form.addEventListener('change', () => {
+  imageRedactForm.classList.remove('hidden');
+  body.classList.add('modal-open');
+
+  document.addEventListener('keydown', onClickEscButton);
+  document.addEventListener('click', onClickButtonnClose);
+});
+
+function closeForm(){
+  body.classList.remove('modal-open');
+  imageRedactForm.classList.add('hidden');
+  closeFormButton.removeEventListener('click', onClickButtonnClose());
+  document.removeEventListener('keydown', onClickEscButton());
+  imageUploadForm.value = '';
+}
 
 const hashtagRegular = /^#[a-zР°-СЏС‘0-9]{1,19}$/i;
 
@@ -48,11 +49,11 @@ const pristine = new Pristine(form, {
   errorTextClass: 'img-upload__error'
 });
 
-const validateComment = (value) => value.length <= MAX_LENGTH_COMMENT;
+const validateComment = (value) => value.length <= MAX_COMMENT_LENGTH;
 
 pristine.addValidator(commentsField, validateComment, 'Комментарий до 140 символов');
 
-const validateHashtagsCount = (value) => value.trim().split(' ').length <= MAX_COUNT_TEGS;
+const validateHashtagsCount = (value) => value.trim().split(' ').length <= MAX_TEGS_COUNT;
 
 const validateHashtags = (value) => value.trim() === '' ? true : value.trim().split(' ').every((hashtag) => hashtagRegular.test(hashtag));
 
@@ -77,7 +78,7 @@ pristine.addValidator(hashtagsField, validateHashtagsUniqueness, 'Хеш-тег 
 form.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (pristine.validate()) {
-    closeOverlay();
+    closeForm();
     evt.target.reset();
   }
 });

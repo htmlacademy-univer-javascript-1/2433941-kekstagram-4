@@ -8,8 +8,8 @@ const MAX_COMMENTS_COUNT = 30;
 const AVATAR_COUNT = 6;
 const MAX_MESSAGE_COUNT = 2;
 const LOADED_COMMENTS = 5;
-const MAX_LENGTH_COMMENT = 140;
-const MAX_COUNT_TEGS = 5;
+const MAX_COMMENT_LENGTH = 140;
+const MAX_TEGS_COUNT = 5;
 
 const DESCRIPTION_TEXTS = [
   'Я не хочу быть в отношениях, я лучше буду в мерседесе.',
@@ -74,5 +74,5 @@ const createPicturePosts = () => Array.from({length: PICTURES_ID}, () => createP
 
 export {createPicturePosts};
 export{LOADED_COMMENTS};
-export{MAX_LENGTH_COMMENT, MAX_COUNT_TEGS};
+export{MAX_COMMENT_LENGTH, MAX_TEGS_COUNT};
 
