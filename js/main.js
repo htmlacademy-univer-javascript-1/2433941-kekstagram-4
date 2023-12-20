@@ -1,4 +1,4 @@
 import {createPicturePosts} from './data.js';
-import {userPhotosList} from './thumbnails.js';
+import './thumbnails.js';
 
-userPhotosList(createPicturePosts());
+createPicturePosts();
