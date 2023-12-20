@@ -1,4 +1,4 @@
 import {createPicturePosts} from './data.js';
-import {renderPictures} from './renderPictures.js';
+import {userPhotosList} from './thumbnails.js';
 
-renderPictures(createPicturePosts());
+userPhotosList(createPicturePosts());
