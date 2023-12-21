@@ -14,7 +14,7 @@ const loadData = (errorText, route, method = 'GET', body = null) =>
       throw new Error(errorText);
     });
 
-const getData = () => loadData('Не удалось загрузить', GET_DATA_PATH);
+const getData = () => loadData('Не удалось загрузить форму', GET_DATA_PATH);
 
 const sendData = (body) => loadData('Не удалось отправить форму', SEND_DATA_PATH, 'POST', body);
 
