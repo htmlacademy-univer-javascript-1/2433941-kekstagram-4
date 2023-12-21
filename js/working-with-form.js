@@ -68,13 +68,13 @@ const validateHashtags = (value) => value.trim() === '' ? true : value.trim().sp
 
 const validateHashtagsUniqueness  = (value) => {
   const hashtags = value.trim().split(' ');
-  const tempArr = [];
+  const tegs = [];
   for (let i = 0; i < hashtags.length; i++){
-    if(tempArr.includes(hashtags[i])){
+    if(tegs.includes(hashtags[i])){
       return false;
     }
     else {
-      tempArr.push(hashtags[i]);
+      tegs.push(hashtags[i]);
     }
   }
   return true;
