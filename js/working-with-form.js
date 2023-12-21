@@ -5,7 +5,6 @@ import {clearScaleValue} from './scale.js';
 import {showSuccessMessage, showErrorMessage} from './message.js';
 import { sendData } from './api.js';
 
-
 const body = document.querySelector('body');
 const form = document.querySelector('.img-upload__form');
 const imageUploadForm = document.querySelector('.img-upload__input');
