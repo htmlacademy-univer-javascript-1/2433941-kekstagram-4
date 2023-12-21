@@ -1,5 +1,6 @@
 import { createPhotoElements } from './thumbnails.js';
 import { getData } from './api.js';
+import './thumbnails.js';
 import './working-with-form.js';
 import './effects.js';
 import './scale.js';
