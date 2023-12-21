@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import{MAX_COMMENT_LENGTH, MAX_TEGS_COUNT} from './data.js';
+import{MAX_COMMENTS_LENGTH, MAX_TEGS_COUNT} from './data.js';
 import {resetEffects} from './effects.js';
 import {clearScaleValue} from './scale.js';
 import {showSuccessMessage, showErrorMessage} from './message.js';
@@ -58,7 +58,7 @@ const pristine = new Pristine(form, {
   errorTextClass: 'img-upload__error'
 });
 
-const validateComment = (value) => value.length <= MAX_COMMENT_LENGTH;
+const validateComment = (value) => value.length <= MAX_COMMENTS_LENGTH;
 
 pristine.addValidator(commentsField, validateComment, 'Комментарий до 140 символов');
 

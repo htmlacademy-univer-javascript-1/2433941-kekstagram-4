@@ -6,14 +6,14 @@ const MAX_LIKES_COUNT = 200;
 const MIN_COMMENTS_COUNT = 0;
 const MAX_COMMENTS_COUNT = 30;
 const AVATAR_COUNT = 6;
-const MAX_MESSAGE_COUNT = 2;
+const MAX_MESSAGES_COUNT = 2;
 const LOADED_COMMENTS = 5;
-const MAX_COMMENT_LENGTH = 140;
+const MAX_COMMENTS_LENGTH = 140;
 const MAX_TEGS_COUNT = 5;
 const MAX_SCALE_RANGE = 100;
 const MIN_SCALE_RANGE = 25;
 const NUMBER_OF_PHOTOS = 10;
-const RERENDER_DELAY = 500;
+const RERENDER_DELAYS = 500;
 
 const DESCRIPTION_TEXTS = [
   'Я не хочу быть в отношениях, я лучше буду в мерседесе.',
@@ -62,7 +62,7 @@ const getUrlId = getSerialNumber();
 const getRandomComment = () => ({
   id: getCurrentId(),
   avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
-  message: Array.from(new Array(getRandomInteger(1, MAX_MESSAGE_COUNT)), () => getRandomArrayElement(MESSAGES)).join(' '),
+  message: Array.from(new Array(getRandomInteger(1, MAX_MESSAGES_COUNT)), () => getRandomArrayElement(MESSAGES)).join(' '),
   name: getRandomArrayElement(NAMES),
 });
 
@@ -78,7 +78,7 @@ const createPicturePosts = () => Array.from({length: PICTURES_ID}, () => createP
 
 export {createPicturePosts};
 export{LOADED_COMMENTS};
-export{MAX_COMMENT_LENGTH, MAX_TEGS_COUNT};
+export{MAX_COMMENTS_LENGTH, MAX_TEGS_COUNT};
 export{MIN_SCALE_RANGE, MAX_SCALE_RANGE};
 export {NUMBER_OF_PHOTOS};
-export {RERENDER_DELAY};
+export {RERENDER_DELAYS};

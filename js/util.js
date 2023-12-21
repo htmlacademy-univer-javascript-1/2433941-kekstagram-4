@@ -1,4 +1,4 @@
-import {RERENDER_DELAY} from './data.js';
+import {RERENDER_DELAYS} from './data.js';
 
 const getRandomInteger = (min, max) => {
   const lower = Math.ceil(Math.min(min, max));
@@ -22,7 +22,7 @@ const getRandomElementsArray = (photos, count) => {
 const isEscapeKey = (evt) => evt.key === 'Escape';
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-const debounce = (callback, timeoutDelay = RERENDER_DELAY) => {
+const debounce = (callback, timeoutDelay = RERENDER_DELAYS) => {
   let timeoutId;
   return (...rest) => {
     clearTimeout(timeoutId);

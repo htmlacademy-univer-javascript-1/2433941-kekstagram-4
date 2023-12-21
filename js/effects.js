@@ -54,10 +54,10 @@ const imgDefaultElement = document.querySelector('.img-upload__preview img');
 const sliderElement = document.querySelector('.effect-level__slider');
 const effectLevelValue = document.querySelector('.effect-level__value');
 
-const [deffaultEffect] = EFFECTS;
-let chosenEffect =  deffaultEffect;
+const [deffaultEffects] = EFFECTS;
+let chosenEffect =  deffaultEffects;
 
-const isDefault = () => chosenEffect === deffaultEffect;
+const isDefault = () => chosenEffect === deffaultEffects;
 
 const updateSlider = () => {
   sliderElement.classList.remove('hidden');
@@ -97,17 +97,17 @@ const onSliderUpdate = () => {
 };
 
 const resetEffects = () => {
-  chosenEffect = deffaultEffect;
+  chosenEffect = deffaultEffects;
   updateSlider();
 };
 
 noUiSlider.create(sliderElement, {
   range: {
-    min: deffaultEffect.min,
-    max: deffaultEffect.max,
+    min: deffaultEffects.min,
+    max: deffaultEffects.max,
   },
-  step: deffaultEffect.step,
-  start: deffaultEffect.max,
+  step: deffaultEffects.step,
+  start: deffaultEffects.max,
   connect: 'lower',
 });
 
