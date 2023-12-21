@@ -1,22 +1,26 @@
+import { openPicture } from './fullsize-picture.js';
+
 const userPhotosList = document.querySelector('.pictures');
 const userPictureTemplate = document.querySelector('#picture')
   .content
   .querySelector('.picture');
 
 
-const photosListFragment = document.createDocumentFragment();
+const createPhotoElements = (photos) => {
+  const photosListFragment = document.createDocumentFragment();
 
-const thumbnailsList = (photo) => {
-  photo.forEach(({url, comments, likes}) => {
+  photos.forEach((photo) => {
     const photoElement = userPictureTemplate.cloneNode(true);
-    photoElement.querySelector('.picture__img').src = url;
-    photoElement.querySelector('.picture__comments').textContent = comments.length;
-    photoElement.querySelector('.picture__likes').textContent = likes;
+    photoElement.querySelector('.picture__img').src = photo.url;
+    photoElement.querySelector('.picture__comments').textContent = photo.comments.length;
+    photoElement.querySelector('.picture__likes').textContent = photo.likes;
     photosListFragment.appendChild(photoElement);
+    photoElement.addEventListener('click', () => {
+      openPicture(photo);
+    });
   });
+
   userPhotosList.appendChild(photosListFragment);
 };
 
-userPhotosList.appendChild(photosListFragment);
-
-export{thumbnailsList};
+export{createPhotoElements};
