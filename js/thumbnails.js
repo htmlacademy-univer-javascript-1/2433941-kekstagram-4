@@ -10,7 +10,7 @@ const thumbnailsList = (photo) => {
   photo.forEach(({url, comments, likes}) => {
     const photoElement = userPictureTemplate.cloneNode(true);
     photoElement.querySelector('.picture__img').src = url;
-    photoElement.querySelector('.picture__comments').textContent = comments;
+    photoElement.querySelector('.picture__comments').textContent = comments.length;
     photoElement.querySelector('.picture__likes').textContent = likes;
     photosListFragment.appendChild(photoElement);
   });
