@@ -31,7 +31,7 @@ const setActiveFilter = (array, button) => {
 };
 
 
-const setFilters = (photos) => {
+const initFilters = (photos) => {
   createPhotoElements(photos);
   imgFiltersElement.classList.remove('img-filters--inactive');
   defaultFilterButton.addEventListener('click', debounce(() => {
@@ -45,4 +45,4 @@ const setFilters = (photos) => {
   }));
 };
 
-export {setFilters};
+export {initFilters};

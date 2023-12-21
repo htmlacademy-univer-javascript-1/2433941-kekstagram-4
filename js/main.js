@@ -1,5 +1,5 @@
 import { getData } from './api.js';
-import { setFilters } from './filters.js';
+import { initFilters } from './filters.js';
 import './working-with-form.js';
 import './effects.js';
 import './scale.js';
@@ -8,7 +8,7 @@ import './upload-photo.js';
 
 const loadPictures = async () => {
   try {
-    setFilters(await getData());
+    initFilters(await getData());
   }
   catch (err){
     const alertMessage = document.querySelector('#alert').content;
