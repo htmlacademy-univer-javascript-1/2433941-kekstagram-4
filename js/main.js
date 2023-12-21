@@ -1,9 +1,8 @@
-import './thumbnails.js';
+import { createPhotoElements } from './thumbnails.js';
+import { getData } from './api.js';
 import './working-with-form.js';
 import './effects.js';
 import './scale.js';
-import { getData } from './api.js';
-import { createPhotoElements } from './thumbnails.js';
 
 
 const loadPictures = async () => {
