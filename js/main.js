@@ -1,11 +1,13 @@
+import './thumbnails.js';
+import './working-with-form.js';
+import './effects.js';
+import './scale.js';
 import { getData } from './api.js';
-import {renderPictures} from './renderPictures.js';
-import './workingWithForm.js';
-import './workingWithFilter.js';
+import { thumbnailsList } from './thumbnails.js';
 
 const loadPictures = async () => {
   try {
-    renderPictures(await getData());
+    thumbnailsList(await getData());
   }
   catch (err){
     const alertMessage = document.querySelector('#alert').content;
