@@ -13,7 +13,6 @@ const closeFormButton = document.querySelector('.img-upload__cancel');
 const imageRedactForm = document.querySelector('.img-upload__overlay');
 const commentsField = document.querySelector('.text__description');
 const hashtagsField = document.querySelector('.text__hashtags');
-const picturePreview = document.querySelector('.img-upload__preview img');
 const submitButton = form.querySelector('.img-upload__submit');
 
 const onClickButtonnClose = () => closeFormButton.addEventListener('click', (evt) => {
@@ -57,16 +56,6 @@ const pristine = new Pristine(form, {
   errorTextParent: 'img-upload__field-wrapper',
   errorTextTag: 'div',
   errorTextClass: 'img-upload__error'
-});
-
-imageUploadForm.addEventListener('change', () => {
-  imageRedactForm.classList.remove('hidden');
-  document.body.classList.add('modal-open');
-  document.querySelector('.effect-level__slider').parentNode.classList.add('hidden');
-  document.querySelector('.scale__control--value').value = '100%';
-  picturePreview.removeAttribute('style');
-  closeFormButton.addEventListener('click', closeForm);
-  document.addEventListener('keydown', onClickEscButton);
 });
 
 const validateComment = (value) => value.length <= MAX_COMMENT_LENGTH;
