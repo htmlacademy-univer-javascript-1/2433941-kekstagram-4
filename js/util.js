@@ -1,4 +1,4 @@
-const RERENDER_DELAY = 500;
+import {RERENDER_DELAY} from './data.js';
 
 const getRandomInteger = (min, max) => {
   const lower = Math.ceil(Math.min(min, max));
@@ -7,7 +7,7 @@ const getRandomInteger = (min, max) => {
   return Math.floor(result);
 };
 
-const getUniqueRandomElementsArray = (photos, count) => {
+const getRandomElementsArray = (photos, count) => {
   const copiedArray = photos.slice();
   const uniqueElementsArray = [];
   for (let i = 0; i < count; i++) {
@@ -18,6 +18,10 @@ const getUniqueRandomElementsArray = (photos, count) => {
   return uniqueElementsArray;
 };
 
+
+const isEscapeKey = (evt) => evt.key === 'Escape';
+const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
+
 const debounce = (callback, timeoutDelay = RERENDER_DELAY) => {
   let timeoutId;
   return (...rest) => {
@@ -26,7 +30,5 @@ const debounce = (callback, timeoutDelay = RERENDER_DELAY) => {
   };
 };
 
-const isEscapeKey = (evt) => evt.key === 'Escape';
-const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-export{getRandomInteger, getUniqueRandomElementsArray, isEscapeKey, debounce, getRandomArrayElement};
+export{getRandomInteger, getRandomArrayElement, isEscapeKey, debounce, getRandomElementsArray};
