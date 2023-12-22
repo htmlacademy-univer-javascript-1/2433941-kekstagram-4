@@ -13,6 +13,7 @@ const imageRedactForm = document.querySelector('.img-upload__overlay');
 const commentsField = document.querySelector('.text__description');
 const hashtagsField = document.querySelector('.text__hashtags');
 const submitButton = form.querySelector('.img-upload__submit');
+const hashtagRegular = /^#[a-zР°-СЏС‘0-9]{1,19}$/i;
 
 const onClickButtonnClose = () => closeFormButton.addEventListener('click', (evt) => {
   evt.preventDefault();
@@ -46,7 +47,6 @@ function closeForm(){
   resetEffects();
 }
 
-const hashtagRegular = /^#[a-zР°-СЏС‘0-9]{1,19}$/i;
 
 const pristine = new Pristine(form, {
   classTo: 'img-upload__field-wrapper',
