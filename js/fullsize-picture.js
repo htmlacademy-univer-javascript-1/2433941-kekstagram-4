@@ -54,9 +54,9 @@ const openComments = () => {
 };
 
 const openPicture = (picture) =>{
+  const {url, description, likes, comments} = picture;
   body.classList.add('modal-open');
   fullsizePicture.classList.remove('hidden');
-  const {url, description, likes, comments} = picture;
   fullsizePicture.querySelector('.big-picture__img img').src = url;
   fullsizePicture.querySelector('.likes-count').textContent = likes;
   fullsizePicture.querySelector('.comments-count').textContent = comments.length;
